@@ -1,4 +1,4 @@
-# 🗄️ ORACLE DATABASE MINI-LAB
+# ORACLE DATABASE MINI-LAB
 
 **A focused demonstration of Oracle Database concepts and operations**
 
