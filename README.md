@@ -329,49 +329,6 @@ SELECT SUM(bytes) / 1024 / 1024 / 1024 as size_gb FROM dba_data_files;
 -- Table sizes
 SELECT table_name, num_rows FROM user_tables;
 ```
-
----
-
-## Skills Demonstrated
-
-✅ **Oracle Database Design**
-  - Table design with Oracle data types
-  - Constraints (CHECK, FOREIGN KEY, UNIQUE)
-  - Sequences for auto-increment
-  - Indexes for performance
-
-✅ **Oracle-Specific Features**
-  - PL/SQL procedures
-  - Reusable views
-  - CLOB for large text
-  - Named constraints for clarity
-
-✅ **Security & Access Control**
-  - User creation with minimal privileges
-  - Role-based access
-  - User tablespace assignment
-
-✅ **SQL*Plus Operations**
-  - Database connection and navigation
-  - Formatting and scripting
-  - Data dictionary queries
-  - Execution plan analysis
-
----
-
-## Comparison: Enterprise Skills
-
-**This lab demonstrates:**
-- Understanding of **different database platforms** (PostgreSQL vs Oracle)
-- Ability to **adapt** to new technologies quickly
-- Knowledge of **enterprise database concepts** (tablespaces, roles, export/import)
-- **Hands-on experience** with industry-standard tools
-
-**Portfolio Value:**
-- Shows you can **learn and work with multiple databases**
-- Demonstrates **migration readiness** (PostgreSQL → Oracle, or vice versa)
-- Proves **systems engineering fundamentals** apply across platforms
-
 ---
 
 ## Next Steps
