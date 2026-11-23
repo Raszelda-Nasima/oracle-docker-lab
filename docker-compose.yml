@@ -1,0 +1,46 @@
+version: '3.9'
+
+services:
+  # Oracle Database 23c Free (lightweight)
+  # Note: Oracle image is large (~10GB) but free tier is available
+  oracle:
+    image: gvenzl/oracle-xe:latest
+    container_name: oracle-mini-lab
+    environment:
+      ORACLE_PASSWORD: MySecurePass2024!
+      ORACLE_CHARACTERSET: AL32UTF8
+    ports:
+      - "1521:1521"      # Oracle SQL*Net listener
+      - "5500:5500"      # Oracle Enterprise Manager Express
+    volumes:
+      - oracle_data:/opt/oracle/oradata
+      - ./init-scripts:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD", "sqlplus", "-L", "sys/MySecurePass2024!@localhost:1521/xe", "as", "sysdba"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - oracle_network
+  
+  # SQL Developer (optional - lightweight IDE for Oracle)
+  sqlcli:
+    image: busybox:latest
+    container_name: oracle-sqlcli
+    depends_on:
+      oracle:
+        condition: service_healthy
+    networks:
+      - oracle_network
+    entrypoint: /bin/sh
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./scripts:/scripts
+
+volumes:
+  oracle_data:
+
+networks:
+  oracle_network:
+    driver: bridge
